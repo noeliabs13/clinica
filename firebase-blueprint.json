@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "user": {
+      "title": "User Profile",
+      "description": "Information about a user (patient or doctor)",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["patient", "doctor"] },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["uid", "name", "email", "role"]
+    },
+    "appointment": {
+      "title": "Appointment",
+      "description": "A scheduled clinic appointment",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientEmail": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "doctorName": { "type": "string" },
+        "specialty": { "type": "string" },
+        "status": { "type": "string", "enum": ["Completada", "Urgente", "En espera", "Próxima"] },
+        "notes": { "type": "string" },
+        "calendarEventId": { "type": "string" },
+        "userId": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["patientName", "patientEmail", "date", "time", "doctorName", "specialty", "status", "userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "user",
+      "description": "User profiles"
+    },
+    "/appointments/{appointmentId}": {
+      "schema": "appointment",
+      "description": "Clinic appointments"
+    }
+  }
+}

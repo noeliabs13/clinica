@@ -1,0 +1,6 @@
+{
+  "name": "Clínica Premium",
+  "description": "Panel de gestión de citas médicas, historial clínico y chat inteligente para pacientes y doctores.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
